@@ -32,20 +32,25 @@
         </header>
 
         <!-- Live MySQL Analytics Dashboard Bar -->
-        <section class="glass-card stats-bar">
-            <div class="stat-item">
-                <div class="number">{{ views }}</div>
-                <div class="label">Live Visitors (MySQL)</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">{{ predictions }}</div>
-                <div class="label">ML Predictions Served</div>
-            </div>
-            <div class="stat-item">
-                <div class="number">{{ messages }}</div>
-                <div class="label">Messages Logged</div>
-            </div>
-        </section>
+        <!-- Example metric boxes HTML section -->
+<div class="stats-container">
+
+    <div class="stat-card">
+        <h2 class="stat-number">{{ visitor_count }}</h2>
+        <p class="stat-label">LIVE VISITORS (MYSQL)</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 class="stat-number">{{ ml_count }}</h2>
+        <p class="stat-label">ML PREDICTIONS SERVED</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 class="stat-number">{{ messages_count }}</h2>
+        <p class="stat-label">MESSAGES LOGGED</p>
+    </div>
+
+</div>
 
         <!-- Executive Summary -->
         <section class="glass-card">
