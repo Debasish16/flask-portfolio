@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | AI & Machine Learning Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Floating Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+    </button>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <header class="glass-card hero">
+            <h1>Debasish Pradhan</h1>
+            <h2>AI / Machine Learning Engineer & Python Developer</h2>
+            <p>Specializing in developing data-driven Machine Learning models, predictive analytics pipelines, and interactive full-stack web applications backed by modern databases.</p>
+            <div class="hero-buttons">
+                <a href="/download-cv" class="btn">
+                    <i class="fa-solid fa-download"></i> Download CV
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Get In Touch
+                </a>
+            </div>
+        </header>
+
+        <!-- Live MySQL Analytics Dashboard Bar -->
+        <section class="glass-card stats-bar">
+            <div class="stat-item">
+                <div class="number">{{ views }}</div>
+                <div class="label">Live Visitors (MySQL)</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">{{ predictions }}</div>
+                <div class="label">ML Predictions Served</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">{{ messages }}</div>
+                <div class="label">Messages Logged</div>
+            </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <section class="glass-card">
+            <h3 class="section-title"><span>01.</span> Executive Summary</h3>
+            <p>Passionate Machine Learning Engineer with strong proficiency in Python, Data Science, and Full-Stack Integration. Experienced in building end-to-end ML workflows—from data cleaning and feature engineering to model deployment using Streamlit, Flask, and cloud platforms. Driven by solving complex problems with structured data and modern algorithms.</p>
+        </section>
+
+        <!-- Technical Skillset -->
+        <section class="glass-card">
+            <h3 class="section-title"><span>02.</span> Technical Skillset</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>AI & Machine Learning</h4>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Python (Scikit-Learn, Pandas, NumPy)</span><span>90%</span></div>
+                        <div class="progress-line"><span style="width: 90%;"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Model Deployment & Evaluation</span><span>85%</span></div>
+                        <div class="progress-line"><span style="width: 85%;"></span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Backend & Databases</h4>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>MySQL & Relational Schema Design</span><span>85%</span></div>
+                        <div class="progress-line"><span style="width: 85%;"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Flask & REST APIs</span><span>80%</span></div>
+                        <div class="progress-line"><span style="width: 80%;"></span></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Frontend & Tools</h4>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>Streamlit & Dashboarding</span><span>95%</span></div>
+                        <div class="progress-line"><span style="width: 95%;"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info"><span>HTML5, CSS3 Glassmorphism, Git</span><span>85%</span></div>
+                        <div class="progress-line"><span style="width: 85%;"></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Timeline -->
+        <section class="glass-card">
+            <h3 class="section-title"><span>03.</span> Experience & Education</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-title">Machine Learning Projects & Open Source Development</div>
+                    <div class="timeline-subtitle">Independent Developer</div>
+                    <p>Designed and deployed interactive web tools including real-time Air Quality prediction engines and full-stack portfolio platforms using Python, Streamlit, Flask, and MySQL.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2025</div>
+                    <div class="timeline-title">Bachelor's Degree in Computer Science / AI</div>
+                    <div class="timeline-subtitle">Einstein Academy of Technology and Management, Bhubaneswar</div>
+                    <p>Focused coursework on Machine Learning Algorithms, Database Systems, Software Engineering, and Applied Mathematics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="glass-card">
+            <h3 class="section-title"><span>04.</span> Featured Projects</h3>
+            <div class="projects-grid">
+                <div class="glass-card project-card">
+                    <div>
+                        <h4>🌤️ Air Quality Index (AQI) Predictor</h4>
+                        <p>An interactive Machine Learning web app predicting environmental air quality using custom regression models and real-time visualization dials.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Streamlit</span>
+                            <span class="tag">Plotly</span>
+                            <span class="tag">GitHub Cloud</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-secondary">Explore Project</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div>
+                        <h4>📊 Dynamic ML Portfolio & Analytics Platform</h4>
+                        <p>Full-stack dashboard connected to a MySQL database logging real-time visitor sessions and ML prediction activity.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">HTML5/CSS3</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-secondary">Explore Project</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Playground & Contact Grid -->
+        <div class="grid-2col" id="contact">
+            <!-- Live ML Model Playground -->
+            <div class="glass-card">
+                <h3 class="section-title"><span>05.</span> Live ML Test</h3>
+                <p>Test the prediction engine. Results and activity are logged to MySQL.</p>
+                
+                <label>Temperature (°C)</label>
+                <input type="number" id="temp" value="28">
+                
+                <label>Humidity (%)</label>
+                <input type="number" id="humidity" value="60">
+                
+                <label>PM2.5 Dust Level (µg/m³)</label>
+                <input type="number" id="pm25" value="45">
+
+                <label>NO2 Level (ppb)</label>
+                <input type="number" id="no2" value="25">
+
+                <button class="btn" style="width:100%;" onclick="runPrediction()">Run Prediction Engine</button>
+                <div id="ml-result" class="result-badge" style="display:none;"></div>
+            </div>
+
+            <!-- Intelligent Contact Form -->
+            <div class="glass-card">
+                <h3 class="section-title"><span>06.</span> Contact Me</h3>
+                <p>Messages undergo real-time NLP sentiment analysis before being saved to MySQL.</p>
+                
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <textarea id="message" rows="4" placeholder="Your Message..."></textarea>
+
+                <button class="btn" style="width:100%;" onclick="sendMessage()">Send Message</button>
+                <div id="contact-result" class="result-badge" style="display:none;"></div>
+            </div>
+        </div>
+
+        <!-- Address & Social Media Footer -->
+        <footer class="glass-card footer-section">
+            <div class="footer-grid">
+                <div class="address-box">
+                    <h4 class="footer-title"><i class="fa-solid fa-location-dot"></i> Contact & Location</h4>
+                    <p class="address-text">
+                        <strong>Address:</strong> Tangi, Khordha,<br>
+                        Bhubaneswar , Odisha , India - 752023<br>
+                        <strong>Email:</strong> debasish240204@gmail.com<br>
+                        <strong>Phone:</strong> +91 9178857854
+                    </p>
+                </div>
+
+                <div class="social-box">
+                    <h4 class="footer-title"><i class="fa-solid fa-share-nodes"></i> Connect With Me</h4>
+                    <p class="social-subtitle">Click below to visit my official profiles:</p>
+                    <div class="social-links">
+                        <a href="https://youtube.com/@debasishpradhan5057?si=o_eFUoUECWijM4yg" target="_blank" rel="noopener noreferrer" class="social-icon youtube" title="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1DEQyQfciX/" target="_blank" rel="noopener noreferrer" class="social-icon facebook" title="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="I'm on Instagram as @deb_asish_4850. Install the app to follow my photos and videos. https://www.instagram.com/deb_asish_4850?igsh=d29xNnhnenlqdWtw&utm_source=ig_contact_invite" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/919178857854" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Debasish Pradhan. Built with Python, Flask, MySQL & Glassmorphism UI.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for API Interactions & Dark/Light Theme Switcher -->
+    <script>
+        // 1. Live ML Prediction Engine AJAX
+        async function runPrediction() {
+            const temp = document.getElementById('temp').value;
+            const humidity = document.getElementById('humidity').value;
+            const pm25 = document.getElementById('pm25').value;
+            const no2 = document.getElementById('no2').value;
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ temp, humidity, pm25, no2 })
+            });
+
+            const data = await response.json();
+            const resultBox = document.getElementById('ml-result');
+            resultBox.style.display = 'block';
+            resultBox.innerHTML = `Predicted AQI Score: <b>${data.aqi}</b>`;
+        }
+
+        // 2. Intelligent Contact Form AJAX
+        async function sendMessage() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if(!name || !email || !message) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            const response = await fetch('/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            const data = await response.json();
+            const resultBox = document.getElementById('contact-result');
+            resultBox.style.display = 'block';
+            
+            if(data.status === 'success') {
+                resultBox.innerHTML = `Message Sent! Sentiment Classification: <b>${data.sentiment}</b>`;
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                resultBox.innerHTML = `Error: ${data.message}`;
+            }
+        }
+
+        // 3. Persistent Dark/Light Mode Switcher
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.className = 'fa-solid fa-sun';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.className = 'fa-solid fa-moon';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'dark';
+
+            if (currentTheme === 'dark') {
+                newTheme = 'light';
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
