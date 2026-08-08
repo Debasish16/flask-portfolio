@@ -28,12 +28,12 @@ def get_db_connection():
 # AUTO-CREATE TABLES ON STARTUP
 # ==========================================
 def init_db():
-    """Creates projects and messages tables in Aiven automatically if they do not exist."""
     conn = get_db_connection()
     if conn and conn.is_connected():
         try:
             cursor = conn.cursor()
             
+            # Table for project showcases
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS projects (
                     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,12 +47,22 @@ def init_db():
                 );
             """)
             
+            # Table for contact messages
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS messages (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     name VARCHAR(100) NOT NULL,
                     email VARCHAR(255) NOT NULL,
                     message TEXT NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            """)
+
+            # Table for analytics counters (Visitors / ML predictions)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS analytics (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    action_type VARCHAR(50) NOT NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
             """)
@@ -75,20 +85,51 @@ init_db()
 @app.route('/')
 def home():
     projects = []
+    visitor_count = 0
+    messages_count = 0
+    ml_count = 0
+
     conn = get_db_connection()
-    
     if conn and conn.is_connected():
         try:
             cursor = conn.cursor(dictionary=True)
+
+            # 1. Log a new live page view
+            cursor.execute("INSERT INTO analytics (action_type) VALUES ('page_view')")
+            conn.commit()
+
+            # 2. Query total visitors count
+            cursor.execute("SELECT COUNT(*) AS total FROM analytics WHERE action_type = 'page_view'")
+            visitor_res = cursor.fetchone()
+            visitor_count = visitor_res['total'] if visitor_res else 0
+
+            # 3. Query total contact form messages count
+            cursor.execute("SELECT COUNT(*) AS total FROM messages")
+            msg_res = cursor.fetchone()
+            messages_count = msg_res['total'] if msg_res else 0
+
+            # 4. Query total ML predictions served (or analytics log count)
+            cursor.execute("SELECT COUNT(*) AS total FROM analytics WHERE action_type = 'ml_prediction'")
+            ml_res = cursor.fetchone()
+            ml_count = ml_res['total'] if ml_res else 0
+
+            # 5. Fetch all projects
             cursor.execute("SELECT * FROM projects")
             projects = cursor.fetchall()
+
             cursor.close()
         except Error as e:
-            print(f"Error fetching projects: {e}")
+            print(f"Error fetching stats/projects: {e}")
         finally:
             conn.close()
 
-    return render_template('index.html', projects=projects)
+    return render_template(
+        'index.html',
+        projects=projects,
+        visitor_count=visitor_count,
+        ml_count=ml_count,
+        messages_count=messages_count
+    )
 
 
 @app.route('/contact', methods=['POST'])
